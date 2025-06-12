@@ -58,7 +58,7 @@
   
   
   /* Bolinhas menores */
-  .circle-item {
+ .circle-item {
     width: 100px;
     height: 100px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -68,13 +68,22 @@
     transform: scale(0.5);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 3;
-  }
-  
-  .circle-item.show {
+    display: flex; /* Adicionado para centralizar o ícone */
+    justify-content: center; /* Adicionado para centralizar o ícone */
+    align-items: center; /* Adicionado para centralizar o ícone */
+}
+
+.circle-item.show {
     opacity: 1;
     transform: scale(1);
-  }
-  
+}
+
+/* NOVO: Estilo para o ícone dentro do circle-item */
+.circle-item .circle-icon {
+    width: 60px; /* Ajuste o tamanho conforme necessário */
+    height: 60px; /* Ajuste o tamanho conforme necessário */
+    opacity: 0.5; /* Opacidade desejada */
+} 
   /* Hover destacado */
   .circle-item:hover {
     transform: scale(1.1);

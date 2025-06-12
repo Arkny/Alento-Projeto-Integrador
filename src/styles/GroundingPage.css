@@ -1,59 +1,74 @@
-.grounding-container {
+.grounding-wrapper-container {
     height: 100vh;
+    width: 100vw; /* Ocupa toda a largura da viewport para permitir o swipe */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(to bottom, #c2f0d3, #ffe5a5, #ff8787); /* Background from index.css */
-    position: relative; /* Needed for absolute positioning of back button */
+    background: linear-gradient(to bottom, #c2f0d3, #ffe5a5, #ff8787); /* Background da página */
+    position: relative; /* Para o back-circle se posicionar em relação a ele */
+    overflow: hidden; /* Esconde o scroll horizontal durante o swipe */
 }
 
 /* Style for the back circle button */
 .back-circle {
     position: absolute;
-    top: 50%; /* Center vertically in the viewport */
-    /* Adjusted to be closer to the wider card */
-    left: calc(50% - 175px - 200px); /* (50% - half_card_width - half_button_width) */
-    transform: translateY(-50%); /* Adjust for perfect vertical centering based on its own height */
-    width: 60px; /* Size of the circle */
+    top: 50%;
+    /* Ajustado para a nova largura do card (600px) e a distância do botão (60px) */
+    left: calc(50% - 300px - 60px); /* 50% - (largura_card / 2) - (largura_botao) */
+    transform: translateY(-50%);
+    width: 60px;
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.2); /* Darker, slightly transparent background */
+    background-color: rgba(0, 0, 0, 0.3); /* Consistente com a opacidade dos botões */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    z-index: 10; /* Ensure it's above other content if necessary */
+    z-index: 10;
+}
+
+.back-circle .back-icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.85;
 }
 
 .back-circle:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-    transform: translateY(-50%) scale(1.05); /* Only scale on hover, keeping vertical centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Um pouco mais escuro no hover */
+    transform: translateY(-50%) scale(1.05);
 }
 
-/* If you add an icon inside the back-circle, style it here */
-.back-circle img {
-    width: 30px; /* Example size for an arrow icon */
-    height: 30px;
-    filter: invert(100%); /* Make a black icon white */
-}
+/* Removido o seletor .back-circle img que estava duplicado e com filter invert(100%) */
 
+
+/* O grounding-container agora é o que mantém o card centralizado dentro do wrapper */
+.grounding-container {
+    height: 100vh; /* Para centralizar o card verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Necessário para positioning de elementos dentro do card, se houver */
+    /* background: none; - se você não quiser background aqui */
+}
 
 .grounding-card {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    width: 600px; /* Increased width from 300px to 350px */
-    height: 100vh; /* This will make it span the full viewport height */
+    width: 600px; /* Largura que você definiu */
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
+    justify-content: center;
     align-items: center;
-    margin: 0; /* Ensure no margins push it */
+    margin: 0; /* Remove margens para ocupar 100vh */
+    padding: 30px; /* Adicionado padding aqui, se removido antes. Importante para o espaçamento interno */
+    box-sizing: border-box; /* Garante que padding e borda sejam incluídos na largura/altura */
 }
-
 
 .grounding-card h1 {
     color: white;
@@ -84,13 +99,24 @@
     margin-bottom: 20px;
 }
 
+/* O placeholder não é mais um div, mas uma imagem diretamente */
 .illustration-placeholder {
+    /* Manter para caso precise de um contêiner para a imagem */
     width: 150px;
     height: 150px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
     margin-bottom: 30px;
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para a imagem de ilustração */
+.illustration-image {
+    width: 200px; /* Largura base para a imagem */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .item-counter {
@@ -108,31 +134,129 @@
 
 .counter-buttons {
     display: flex;
-    gap: 20px;
+    gap: 8px; /* Gap entre os botões */
     margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .round-button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: #000; /* Fundo preto padrão */
+    opacity: 0.3; /* Opacidade de 30% padrão */
+    color: #FFF; /* Cor do texto branca no estado normal */
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
     border: none;
-    border-radius: 50%;
     width: 60px;
     height: 60px;
-    font-size: xx-large;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.round-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: scale(1.05);
+/* Estilos específicos de borda para o botão de MENOS */
+.counter-buttons .round-button:first-child {
+    border-radius: 30px 0px 0px 20px;
 }
 
+/* Estilos específicos de borda para o botão de MAIS (e check-button) */
+.counter-buttons .round-button:last-child {
+    border-radius: 0px 20px 30px 0px;
+    width: 80px; /* Largura aumentada para o botão + */
+}
+
+/* Estilos para HOVER */
+.round-button:hover {
+    transform: scale(1.05);
+    opacity: 1 !important;
+    color: #333333 !important;
+}
+
+/* Cores específicas para o botão MENOS no hover */
+.counter-buttons .round-button:first-child:hover {
+    background-color: #FF114C !important;
+}
+
+/* Cores específicas para o botão MAIS no hover */
+.counter-buttons .round-button:last-child:hover {
+    background-color: #3FFFC9 !important;
+}
+
+/* Estilo para ACTIVE (clique) */
+.round-button:active {
+    transform: scale(0.95);
+    opacity: 1 !important;
+    color: #333333 !important;
+    outline: none;
+}
+
+/* Cores específicas para o botão MENOS no active */
+.counter-buttons .round-button:first-child:active {
+    background-color: #FF114C !important;
+}
+
+/* Cores específicas para o botão MAIS no active */
+.counter-buttons .round-button:last-child:active {
+    background-color: #3FFFC9 !important;
+}
+
+/* Estilo para o botão de check (quando objectCount atinge o máximo) */
+.check-button {
+    background: #000000; /* Fundo preto padrão */
+    opacity: 0.3; /* Opacidade de 30% padrão */
+    color: #FFF; /* Cor do texto/ícone branca no estado normal */
+    border-radius: 0px 20px 30px 0px; /* Mantém o border-radius do botão + */
+    cursor: pointer;
+    width: 80px; /* Largura aumentada para o botão de check */
+    height: 60px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.check-button .check-icon-img {
+    width: 30px;
+    height: 30px;
+    /* Remover filter: invert(100%); aqui, será aplicado no hover/active */
+    /* opacity: 1; - opacidade da imagem em si, não do botão */
+    transition: filter 0.3s ease, opacity 0.3s ease; /* Adicionar transição para o ícone */
+}   
+
+/* Estilos para HOVER e ACTIVE (clique) do botão de check */
+.check-button:hover,
+.check-button:active {
+    background-color: #3FFFC9; /* Ciano para o botão de check no hover/active */
+    opacity: 1 !important; /* Opacidade total */
+    color: #333333 !important; /* Cor do texto/ícone para um cinza escuro */
+    transform: scale(1.05); /* Mantém o efeito de escala no hover */
+    outline: none;
+}
+
+/* Efeito de "afundar" para o botão de check ao ser clicado */
+.check-button:active {
+    transform: scale(0.95);
+}
+
+/* Inverter cores do ícone no HOVER e ACTIVE do botão de check */
+.check-button:hover .check-icon-img, 
+.check-button:active .check-icon-img {
+    filter: invert(0%); /* Se o ícone for escuro e você quiser ele normal, ou 'invert(100%)' se ele for claro e quiser que fique escuro */
+    opacity: 0.8; /* Opacidade do ícone no hover/active */
+}
+
+/* Dots de navegação */
 .grounding-dots-container {
     display: flex;
     gap: 8px;
