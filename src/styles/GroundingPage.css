@@ -15,7 +15,7 @@
     position: absolute;
     top: 50%;
     /* Ajustado para a nova largura do card (600px) e a distância do botão (60px) */
-    left: calc(50% - 300px - 60px); /* 50% - (largura_card / 2) - (largura_botao) */
+    left: calc(50% - 300px - 75px); /* 50% - (largura_card / 2) - (largura_botao) */
     transform: translateY(-50%);
     width: 60px;
     height: 60px;
@@ -33,6 +33,7 @@
 .back-circle .back-icon {
     width: 30px;
     height: 30px;
+    filter: invert(100%);
     opacity: 0.85;
 }
 
@@ -41,7 +42,6 @@
     transform: translateY(-50%) scale(1.05);
 }
 
-/* Removido o seletor .back-circle img que estava duplicado e com filter invert(100%) */
 
 
 /* O grounding-container agora é o que mantém o card centralizado dentro do wrapper */
@@ -229,6 +229,7 @@
 .check-button .check-icon-img {
     width: 30px;
     height: 30px;
+    filter: invert(100%);
     /* Remover filter: invert(100%); aqui, será aplicado no hover/active */
     /* opacity: 1; - opacidade da imagem em si, não do botão */
     transition: filter 0.3s ease, opacity 0.3s ease; /* Adicionar transição para o ícone */
