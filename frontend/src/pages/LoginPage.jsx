@@ -1,19 +1,32 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import google from "../assets/google.png";
+import api from '../api';
 
 export default function LoginPage() {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate(); // <- fora do return
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Login com:", usuario, senha);
-
+    try {
+      const res = await api.post("/api/token/", {
+        username: usuario,
+        password: senha
+      });
+      localStorage.setItem("ACCESS_TOKEN", res.data.access);
+      localStorage.setItem("REFRESH_TOKEN", res.data.refresh);
+      navigate("/home");
+    }
+    catch (error) {
+      console.error("Erro ao fazer login:", error);
+      alert("Erro ao fazer login. Tente novamente.");
+    }
     // Simulação de sucesso no login
     // Aqui você pode validar com backend futuramente
-    navigate("/home"); // <- redireciona para HomePage
+    // <- redireciona para HomePage
   };
 
   return (

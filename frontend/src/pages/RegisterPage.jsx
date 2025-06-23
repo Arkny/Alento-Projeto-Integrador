@@ -1,16 +1,34 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from  '../assets/google.png'
+import api from '../api';
 
 
 export default function RegisterPage() {
   const [usuario, setUsuario] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     console.log("Cadastro com:", usuario, email, senha);
+
+    try {
+      const res = await api.post("/api/user/register/", {
+        username: usuario,
+        email: email,
+        password: senha
+      });
+      // Se o backend não retornar tokens, remova as linhas abaixo:
+      // localStorage.setItem(ACCESS_TOKEN, res.data.access);
+      // localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+      navigate("/login"); // Redireciona para a página de login após o cadastro
+    }
+    catch (error) {
+      console.error("Erro ao cadastrar:", error);
+      alert("Erro ao cadastrar. Tente novamente.");
+    }
   };
 
   return (

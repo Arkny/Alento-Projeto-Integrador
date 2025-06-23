@@ -4,6 +4,16 @@ import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import GroundingWrapper from './pages/GroundingWrapper';
 
+function Logout(){
+  localStorage.clear();
+  return <Navigate to="/login"  />;
+}
+
+function registerAndLogout(){
+  localStorage.clear();
+  return <Register />;
+}
+
 function App() {
   return (
     <Router>
