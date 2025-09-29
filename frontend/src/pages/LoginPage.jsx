@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import google from "../assets/google.png";
 import api from '../api';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 export default function LoginPage() {
   const [usuario, setUsuario] = useState("");
@@ -57,18 +59,16 @@ export default function LoginPage() {
         <button type="submit">Continuar</button>
 
         <hr />
-        <button type="button">
-          <img
-            src={google}
-            alt="Google Logo"
-            style={{
-              width: "20px",
-              marginLeft: "8px",
-              verticalAlign: "middle",
-            }}
-          />
-          Entrar com Google
-        </button>
+        <GoogleLogin
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+    console.log(jwtDecode(credentialResponse.credential));
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+/>
+
       </form>
     </div>
   );
