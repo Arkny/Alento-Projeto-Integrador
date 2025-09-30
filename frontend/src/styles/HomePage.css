@@ -30,7 +30,7 @@
     pointer-events: none;
   }
 
-  .gotinha-img {
+  .blob-shape-img  {
     width: 300px;
     height: 300px;
     position: absolute;
@@ -43,8 +43,8 @@
     pointer-events: none;
   }
 
-  .gotinha-img.show {
-    opacity: 1;
+  .blob-shape-img.show {
+    opacity: 0.2;
     transform: scale(1);
     pointer-events: auto;
   }

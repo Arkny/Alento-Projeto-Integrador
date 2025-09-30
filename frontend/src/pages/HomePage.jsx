@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/HomePage.css';
-import gotinha from '../assets/gotinha.png';
+import blobShape from '../assets/blob-shape.png';
 import groundingIcon from '../assets/grounding-icon.png'; // Importar o ícone
+import { 
+  Brain,
+  Info,
+  BookOpen
+} from "lucide-react";
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +29,9 @@ export default function HomePage() {
 
         {/* gotinha por cima */}
         <img
-          src={gotinha}
-          alt="Gotinha"
-          className={`gotinha-img ${isOpen ? 'show' : ''}`}
+          src={blobShape}
+          alt="blob-shape"
+          className={`blob-shape-img ${isOpen ? 'show' : ''}`}
           onClick={toggleMenu}
         />
 
@@ -36,7 +41,7 @@ export default function HomePage() {
           onClick={() => handleCircleItemClick('/grounding-01')}
         >
           {/* Adicionar o ícone aqui */}
-          <img src={groundingIcon} alt="Grounding Icon" className="circle-icon" />
+          <Brain className="circle-icon" />
         </div>
         <div className={`circle-item item2 ${isOpen ? 'show' : ''}`} />
         <div className={`circle-item item3 ${isOpen ? 'show' : ''}`} />
