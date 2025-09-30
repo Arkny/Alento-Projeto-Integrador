@@ -43,8 +43,17 @@ export default function HomePage() {
           {/* Adicionar o ícone aqui */}
           <Brain className="circle-icon" />
         </div>
-        <div className={`circle-item item2 ${isOpen ? 'show' : ''}`} />
-        <div className={`circle-item item3 ${isOpen ? 'show' : ''}`} />
+        <div 
+          className={`circle-item item2 ${isOpen ? 'show' : ''}`}
+          onClick={() => handleCircleItemClick('')}
+        >
+          <Info className="circle-icon" />
+          
+        </div>
+        <div className={`circle-item item3 ${isOpen ? 'show' : ''}`}>
+
+          <BookOpen className="circle-icon" />
+        </div>
         <div className={`circle-item item4 ${isOpen ? 'show' : ''}`} />
       </div>
     </div>
