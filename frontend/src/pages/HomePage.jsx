@@ -45,12 +45,15 @@ export default function HomePage() {
         </div>
         <div 
           className={`circle-item item2 ${isOpen ? 'show' : ''}`}
-          onClick={() => handleCircleItemClick('')}
+          onClick={() => handleCircleItemClick('/info')}
         >
           <Info className="circle-icon" />
           
         </div>
-        <div className={`circle-item item3 ${isOpen ? 'show' : ''}`}>
+        <div 
+          className={`circle-item item3 ${isOpen ? 'show' : ''}`}
+          onClick={() => handleCircleItemClick('/diary')}
+        >
 
           <BookOpen className="circle-icon" />
         </div>

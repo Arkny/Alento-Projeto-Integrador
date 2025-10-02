@@ -1,0 +1,361 @@
+/* Container Principal */
+.diario-ansiedade-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.diario-ansiedade-wrapper {
+  width: 100%;
+  max-width: 64rem;
+}
+
+/* Header */
+.diario-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.back-button {
+  padding: 0.5rem;
+  background: rgba(29, 2, 2, 0.781);
+  opacity: 0.5;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background: rgba(29, 2, 2, 0.91);
+  opacity: 0.75;
+}
+
+.back-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .back-button {
+    padding: 0.75rem;
+  }
+  .back-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.new-record-button {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.new-record-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Card Principal */
+.main-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.card-header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  line-height: 1;
+}
+
+.title-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.card-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.5rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Estado Vazio */
+.empty-state {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-icon {
+  width: 4rem;
+  height: 4rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto 1rem;
+}
+
+.empty-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.empty-description {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.create-first-button {
+  background: var(--primary);
+  color: white;
+}
+
+.create-first-button:hover {
+  background: var(--primary-hover);
+}
+
+/* Lista de Entradas */
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.entry-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.2s;
+}
+
+.entry-card:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.entry-content {
+  padding: 1.5rem;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.entry-dates {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+}
+
+.date-info,
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.date-text {
+  font-weight: 500;
+}
+
+.entry-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Badges de Intensidade */
+.intensity-badge {
+  border: 1px solid;
+}
+
+.intensity-1 {
+  background: rgba(34, 197, 94, 0.2);
+  color: rgb(134, 239, 172);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.intensity-2 {
+  background: rgba(74, 222, 128, 0.2);
+  color: rgb(187, 247, 208);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.intensity-3 {
+  background: rgba(234, 179, 8, 0.2);
+  color: rgb(253, 224, 71);
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+.intensity-4 {
+  background: rgba(249, 115, 22, 0.2);
+  color: rgb(253, 186, 116);
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.intensity-5 {
+  background: rgba(239, 68, 68, 0.2);
+  color: rgb(252, 165, 165);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.intensity-default {
+  background: rgba(107, 114, 128, 0.2);
+  color: rgb(209, 213, 219);
+  border-color: rgba(107, 114, 128, 0.3);
+}
+
+.delete-button {
+  color: rgb(248, 113, 113);
+}
+
+.delete-button:hover {
+  color: rgb(252, 165, 165);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.action-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Detalhes da Entrada */
+.entry-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+  .entry-details {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detail-item {
+  margin-bottom: 0.5rem;
+}
+
+.detail-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.25rem;
+}
+
+.label-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.detail-value {
+  font-weight: 500;
+}
+
+/* Seção do Trigger */
+.trigger-section {
+  margin-top: 1rem;
+}
+
+.trigger-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.25rem;
+}
+
+.trigger-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Variáveis CSS - adicione no seu :root ou arquivo global */
+:root {
+  --gradient-start: #c2f0d3;
+  --gradient-middle: #ffe5a5;
+  --gradient-end: #ff8787;
+  --primary: rgba(0, 0, 0, 0.3);
+  --primary-hover: rgba(0, 0, 0, 0.4);
+}
+/* Botões simplificados */
+.new-record-button,
+.create-first-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.new-record-button {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.new-record-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.create-first-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.create-first-button:hover {
+  background: var(--primary-hover);
+}
+
+.delete-button {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

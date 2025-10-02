@@ -3,6 +3,8 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import GroundingWrapper from './pages/GroundingWrapper';
+import DiaryPage from './pages/DiaryPage';
+import InfoPage from './pages/InfoPage';
 
 function Logout(){
   localStorage.clear();
@@ -22,6 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/diary" element={<DiaryPage />} />
+        <Route path="/info" element={<InfoPage />} />
         {/*
           Remove nested routes for grounding pages.
           GroundingWrapper will handle which specific GroundingPage to display
